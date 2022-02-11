@@ -18,10 +18,10 @@
 #
 
 numWorkers: 8
-image: openmessaging/openmessaging-benchmark:latest
-imagePullPolicy: Always
+image: vectorized/openmessaging-benchmark:latest
+imagePullPolicy: IfNotPresent
 workload: workloads/1-topic-16-partitions-1kb.yaml
-driver: driver-pulsar/pulsar.yaml
+driver: driver-kafka/kafka-throughput.yaml
 
 # Resource Configurations
 driverMemoryRequest: 512Mi
