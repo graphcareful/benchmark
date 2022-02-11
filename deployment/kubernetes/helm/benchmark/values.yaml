@@ -22,6 +22,7 @@ image: vectorized/openmessaging-benchmark:latest
 imagePullPolicy: IfNotPresent
 workload: workloads/1-topic-16-partitions-1kb.yaml
 driver: driver-kafka/kafka-throughput.yaml
+brokers: localhost:9092
 
 # Resource Configurations
 driverMemoryRequest: 512Mi

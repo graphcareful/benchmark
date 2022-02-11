@@ -39,10 +39,12 @@ spec:
           value: "{{ .Values.numWorkers }}"
         - name: WORKERS
           value: '{{ template "workers" .Values }}'
+        - name: BROKERS
+          value: '{{ .Values.brokers }}'
         - name: HEAP_OPTS
           value: '-Xms4G -Xmx4G'
       command: ["sh", "-c"]
       args:
         - >
-          echo "bin/benchmark --drivers {{ .Values.driver }} --workers $WORKERS {{ .Values.workload }}" > example-run.sh &&
+          echo "bin/benchmark --drivers {{ .Values.driver }} --kafka-broker-overrides $BROKERS --workers $WORKERS {{ .Values.workload }}" > example-run.sh &&
           tail -f /dev/null
